@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <h3 font-family="cursive" text-align="center" color="blue">Thanks for submitting this form!! you have submitted this form {{request.session.counter}} times now!!!</h3>
+  <body>
+    <h4>Submitted Information:</h4>
+    <p>Name::{{request.session.fname}}</p>
+    <p>Location::{{request.session.location}}</p>
+    <p>Language::{{request.session.language}}</p>
+    <p>Comment::{{request.session.comment}}</p>
+    <form action="/goback" method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-warning btn-sm">Go back</button>
+
+
+    </form>
+  </body>
+</html>

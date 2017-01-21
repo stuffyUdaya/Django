@@ -1,0 +1,15 @@
+/*h1{
+  text-align: center;
+  font-family: fantasy;
+  color: orangered;
+}
+.form-group{
+  display:flex;
+  justify-content:center;
+}*/
+ h1 {
+    font-size: 36px;
+    font-family: fantasy;
+    text-align: -webkit-center;
+    color: chocolate;
+}

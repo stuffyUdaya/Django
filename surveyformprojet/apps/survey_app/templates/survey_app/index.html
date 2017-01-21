@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'survey_app/css/main.css' %}">
+    <title></title>
+  </head>
+  <body>
+
+      <h1 font-family="fantasy" text-align="center" color="orangered">Welcome to Survey app!!!</h1>
+
+
+    <form action="/results" method="post" class = "form-horizontal">
+      {% csrf_token %}
+      <div class="form-group">
+    <label for="name" class="col-sm-1 control-label">Your Name</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="name" placeholder="Name">
+    </div>
+  </div>
+    <div class="form-group">
+  <label for="Dojo Location" class="col-sm-1 control-label">Dojo Location</label>
+  <div class="col-sm-2">
+            <select class="form-control" name ="location">
+          <option>Mountain View</option>
+          <option>Washington (D.C)</option>
+          <option>Seattle</option>
+          <option>Silicon Valley</option>
+          <option>Berkley</option>
+        </select>
+
+  </div>
+  </div>
+  <div class="form-group">
+<label for="Favourite Language" class="col-sm-1 control-label">Favourite Language</label>
+<div class="col-sm-2">
+          <select class="form-control" name ="language">
+        <option>Python</option>
+        <option>Ruby</option>
+        <option>Java Script</option>
+        <option>Go language</option>
+        <option>C++</option>
+      </select>
+
+</div>
+</div>
+<div class="form-group">
+<label for="Comment" class="col-sm-1 control-label">Comment (optional)</label>
+<div class="col-sm-2">
+  <textarea class="form-control" rows="3" name="comment"></textarea>
+
+
+</div>
+</div>
+
+      <!-- <p>Your Name:<input type="text" name="name" ></p>
+      <p>Dojo Location</p> -->
+      <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+    </form>
+  </body>
+</html>
