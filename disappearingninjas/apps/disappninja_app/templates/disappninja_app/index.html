@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {%load staticfiles%}
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <h1>{{x}}</h1>
+    {%if id == "blue" %}:
+        <img src="{% static "disappninja_app/images/leonardo.jpg" %}" alt="My image"/>
+    {%elif id == "orange" %}
+    <img src="{% static "disappninja_app/images/michelangelo.jpg" %}" alt="My image"/>
+    {%elif id == "red" %}
+    <img src="{% static "disappninja_app/images/raphael.jpg" %}" alt="My image"/>
+    {%elif id == "purple" %}
+    <img src="{% static "disappninja_app/images/donatello.jpg" %}" alt="My image"/>
+    {%elif id  %}
+    <p>!!!!!!!!Megan Fox :):):)</p>
+    {%endif%}
+  </body>
+</html>

@@ -1,0 +1,34 @@
+form{
+  justify-content: space-around;
+}
+h2{
+  text-align: center;
+  font-family: cursive;
+  background-color: orangered;
+}
+h3{
+  text-align: center;
+  font-family: fantasy;
+  color: orangered;
+}
+p{
+  text-align: center;
+  font-family: monospace;
+  color:blue;
+}
+input{
+  position: relative;
+  left:40px;
+}
+h1{
+  justify-content: space-around;
+  font-family: cursive;
+  color: orangered;
+}
+div{
+  display: flex;
+  justify-content: space-around;
+}
+#lost{
+  color:red;
+}
