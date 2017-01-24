@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {%for pair in pairs%}
+    <p>{{pair.friendname}}</p>
+    <p>{{pair.pairname}}</p>
+    {%endfor%}
+    <form action="/addfriend" method="post">
+      {% csrf_token %}
+      <p>Name:</p><input type="text" name="friend">
+      <input type="submit"value="Add a friend">
+    </form>
+
+    <form action="/pairfriends" method="post">
+
+      {% csrf_token %}
+    <h2>Friend</h2>
+    <select name="pairee">
+    {%for friend in friends%}
+
+
+  <option value = {{friend.id}}> {{friend.name}}</option>
+  {%endfor%}
+
+</select>
+<h2>Pairing with</h2>
+<select name="pairer">
+{%for friend in friends%}
+
+
+<option value = {{friend.id}}> {{friend.name}}</option>
+{%endfor%}
+
+</select>
+<input type="submit" value="Pair">
+</form>
+
+
+
+  </body>
+</html>
