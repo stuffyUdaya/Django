@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Are You sure you want to delete this course
+    <p>Name: {{deletecourses.name}}</p>
+    <p>Description: {{deletecourses.desc}}</p>
+
+    <form action="/confirmdelete/{{deletecourses.id}}" method="post">
+      {%csrf_token%}
+      <input type="submit" value="Confirm my Deletion">
+    </form>
+    <form action="/" method="post">
+      {%csrf_token%}
+      <input type="submit"value="Go Back">
+
+    </form>
+  </body>
+</html>
