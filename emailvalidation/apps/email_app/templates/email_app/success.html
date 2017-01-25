@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>The Email address you entered <strong><u>{{succ}}</u></strong> is a VALID email address! Thank You!</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Email Addresses Entered</th>
+        </tr>
+        </thead>
+        {%for email in emails%}
+        <tr>
+          <td>{{email.emailAddress}}</td>
+        </tr>
+        {%endfor%}
+
+
+    </table>
+<form action="/" method="post">
+  {%csrf_token%}
+  <input type="submit" value="GO BACK">
+</form>
+
+  </body>
+</html>
