@@ -2,15 +2,17 @@
 {\fonttbl\f0\fnil\fcharset0 Menlo-Bold;\f1\fnil\fcharset0 Menlo-Regular;\f2\fmodern\fcharset0 Courier;
 }
 {\colortbl;\red255\green255\blue255;\red205\green190\blue151;\red255\green255\blue0;\red122\green37\blue30;
-\red255\green255\blue51;\red255\green249\blue89;\red255\green238\blue149;\red21\green102\blue47;}
+\red255\green255\blue51;\red255\green249\blue89;\red255\green238\blue149;\red21\green102\blue47;\red137\green152\blue14;
+}
 {\*\expandedcolortbl;;\cssrgb\c84314\c78824\c65490;\csgenericrgb\c100000\c100000\c0;\csgenericrgb\c47826\c14510\c11688\c85000;
-\csgenericrgb\c100000\c100000\c20000;\csgenericrgb\c100000\c97647\c34902;\cssrgb\c100000\c94118\c64706;\cssrgb\c7451\c46667\c23922;}
+\csgenericrgb\c100000\c100000\c20000;\csgenericrgb\c100000\c97647\c34902;\cssrgb\c100000\c94118\c64706;\cssrgb\c7451\c46667\c23922;\csgenericrgb\c53725\c59608\c5490;
+}
 \margl1440\margr1440\vieww28600\viewh15280\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
 
 \f0\b\fs36 \cf2 \cb3 \ul \ulc2 \CocoaLigature0 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
 \cf2 \
 \
 Activating Django-Env
@@ -100,11 +102,14 @@ python manage.py migrate\
 
 \f0\b \ul To render the ERD png:
 \f1\b0 \ulnone \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
 
 \f2\fs38 \cf7 \cb8 python manage.py graph_models -a -o myapp_models.png\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
 
 \f1\fs36 \cf2 \cb4 \
-\
+
+\f0\b \cb9 \ul Flushing the Database:
+\f1\b0 \cb4 \ulnone \
+python manage.py sqlflush\
 }
