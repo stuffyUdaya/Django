@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+        <div class="card-panel teal lighten-2"><h4 class="center-align">Add a New Course</h4></div>
+
+    <form class = "col s12" action="/addcourse" method="post">
+      {%csrf_token%}
+      <div class="row">
+      <div class="input-field col s3">
+      <p>Name: <input type="text" name="name"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <p>Description: </p>
+        <textarea name="desc"class="materialize-textarea" ></textarea>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Add Course
+      <i class="material-icons right"></i>
+    </button>
+    </form>
+  </div>
+</div>
+    <div class="bottom">
+      <table class="bordered">
+        <thead>
+
+
+      <tr>
+        <th class="center-align">Course Name</th>
+      <th class="center-align">Description</th>
+      <th class="center-align">Date Added</th>
+      <th class="center-align">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+      {%for course in courses%}
+      <tr>
+
+        <td class="center-align">{{course.name}}</td>
+        <td class="center-align">{{course.desc}}</td>
+        <td class="center-align">{{course.created_at}}</td>
+        <td class="center-align"><a href="/remove/{{course.id}}">Remove</a></td>
+      </tr>
+      {%endfor%}
+      </tbody>
+    </table>
+    </div>
+  </body>
+</html>
