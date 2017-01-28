@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>HEllo {{user.0.name}}</h1>
+    <h3>Your Trip schedules</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End date</th>
+          <th>Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for trip in trips%}
+        <tr>
+          <td><a href="/viewtrip/{{trip.trip.id}}">{{trip.trip.destination}}</a></td>
+          <td>{{trip.trip.datefrom}}</td>
+          <td>{{trip.trip.dateto}}</td>
+          <td>{{trip.trip.description}}</td>
+          <!-- <td>tripid:{{trip.trip.id}}</td>
+          <td>userid: {{trip.user.id}}</td> -->
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+
+    <h3>othere Users Travel Plans</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End date</th>
+          <th>Do you want to join</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for view in views%}
+        <tr>
+
+          <td>{{view.user.name}}</td>
+          <td><a href="/viewtrip/{{view.trip.id}}">{{view.trip.destination}}</a></td>
+
+          <td>{{view.trip.datefrom}}</td>
+          <td>{{view.trip.dateto}}</td>
+          <td><a href="/join/{{view.trip.id}}/{{user.0.id}}">Join</a></td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+
+    <a href="/addtravelplan/{{user.0.id}}">Add Travel Plan</a>
+    <a href="/logout">Logout</a>
+
+  </body>
+</html>

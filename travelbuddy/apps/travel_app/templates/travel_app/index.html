@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Registration</h3>
+    {%for error in errors%}
+    <p>{{error}}</p>
+    {%endfor%}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ ERRORS }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="/process" method="post">
+      {%csrf_token%}
+      <p>Name: <input type="text" name="name"></p>
+      <p>User Name:<input type="text" name="u_name" required></p>
+      <p>Password:<input type="text" name="password" required></p>
+      <p>*Password should be atleast 8 characters</p>
+      <p>Confirm Password:<input type="text" name="confpassword" required></p>
+      <p><input type="submit"value="Register"></p>
+    </form>
+
+
+    <h3>login</h3>
+    <form action="/login" method="post">
+      {%csrf_token%}
+      <p>User Name:<input type="text" name="u_name" required></p>
+      <p>Password:<input type="text" name="password" required></p>
+      <p><input type="submit"value="Login"></p>
+    </form>
+  </body>
+</html>

@@ -6,10 +6,11 @@ import datetime
 # Create your views here.
 
 def index(request):
-    context={
-    "courses":Courses.objects.all()
-    }
-    return render(request,"courses_app/index.html",context)
+    # context={
+    # "courses":Courses.objects.all()
+    # }
+    return render(request,"courses_app/index.html")
+    # ,context)
 def add(request):
     if request.method == 'POST':
         Courses.objects.create(name=request.POST['name'], desc=request.POST['desc'], created_at=datetime.datetime.now())

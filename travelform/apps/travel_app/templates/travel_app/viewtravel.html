@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/home">home</a>
+    <a href="/logout">Logout</a>
+
+    <p>Destination: {{views1.destination}}</p>
+    <p>Planned by:  {{views1.owner.name}}</p>
+    <p>Description:  {{views1.description}}</p>
+    <p>Travel date from: {{views1.datefrom}}</p>
+    <p>Travel date to: {{views1.dateto}}</p>
+
+    <h3>other users joining the trip</h3>
+    {%for view in views%}
+    <p>{{view.user.name}}</p>
+    {%endfor%}
+  </body>
+</html>
