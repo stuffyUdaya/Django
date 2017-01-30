@@ -38,12 +38,27 @@ def login(request):
             return redirect('/')
 def success(request):
     trip = Trip.objects.filter(owner_id = request.session['loggedin'])
-    print trip[0].destination
+    # print trip[0].destination
+    print '$'* 35
+    # print Join.objects.filter(user_id = request.session['loggedin'] )
+    trip =  Trip.objects.filter(owner_id = request.session['loggedin'] )
+    join = Join.objects.filter(user_id = request.session['loggedin'] )
+    trip_other = Trip.objects.exclude(owner_id = request.session['loggedin'] )
+
+    for x in join :
+        print x.trip_id
+        trip_other = trip_other.exclude(id = x.trip_id)
+        print trip_other
+
     context={
     'user':  User.objects.filter(id = request.session['loggedin']),
-    'trips':  Join.objects.filter(user_id = request.session['loggedin'] ),
-    'views': Join.objects.exclude(user_id = request.session['loggedin'])
+    'join':  join,
+    'trips1':  trip,
+    'trip_other': trip_other
+    # exclude(user_id = request.session['loggedin'] ),
+    # 'views1': Trip.objects.exclude(owner = request.session['loggedin'] ),
     }
+
     return render(request,'travel_app/success.html',context)
 def addtravelplan(request,id):
     context = {
@@ -71,6 +86,7 @@ def viewtrip(request,id):
      'views1': Trip.objects.get(id = id),
      'views' : Join.objects.filter(trip_id = id)
     }
+    # print Trip.owner.fi(id=id)
     #
     return render(request,'travel_app/viewtravel.html',context)
 

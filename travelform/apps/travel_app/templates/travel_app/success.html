@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+<div class="card-panel teal lighten-2"><h4 class="center-align">Welcome to Travel buddy</h4></div>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <h1>HEllo {{user.0.name}}</h1>
+    <div class="card-panel">
+      <span class="blue-text text-darken-2">Hello, {{user.0.name}} !! Want to plan a trip!! Go ahead :)</span>
+    </div>
+
     <h3>Your Trip schedules</h3>
     <table>
       <thead>
@@ -17,20 +22,20 @@
         </tr>
       </thead>
       <tbody>
-        {%for trip in trips%}
+        {%for trip in join%}
         <tr>
           <td><a href="/viewtrip/{{trip.trip.id}}">{{trip.trip.destination}}</a></td>
           <td>{{trip.trip.datefrom}}</td>
           <td>{{trip.trip.dateto}}</td>
           <td>{{trip.trip.description}}</td>
-          <!-- <td>tripid:{{trip.trip.id}}</td>
-          <td>userid: {{trip.user.id}}</td> -->
+          <td>tripid:{{trip.trip.id}}</td>
+          <td>userid: {{trip.user.id}}</td>
         </tr>
         {%endfor%}
       </tbody>
     </table>
 
-    <h3>othere Users Travel Plans</h3>
+    <h3>other Users Travel Plans</h3>
     <table>
       <thead>
         <tr>
@@ -42,16 +47,22 @@
         </tr>
       </thead>
       <tbody>
-        {%for view in views%}
-        <tr>
 
-          <td>{{view.user.name}}</td>
-          <td><a href="/viewtrip/{{view.trip.id}}">{{view.trip.destination}}</a></td>
 
-          <td>{{view.trip.datefrom}}</td>
-          <td>{{view.trip.dateto}}</td>
-          <td><a href="/join/{{view.trip.id}}/{{user.0.id}}">Join</a></td>
+          {%for trip in trip_other%}
+
+
+                <tr>
+
+                  <td>{{trip.owner.name}}</td>
+          <td><a href="/viewtrip/{{trip.id}}">{{trip.destination}}</a></td>
+          <td>{{trip.id}}</td>
+          <td>{{trip.datefrom}}</td>
+          <td>{{trip.dateto}}</td>
+          <td><a href="/join/{{trip.id}}/{{user.0.id}}">Join</a></td>
         </tr>
+
+
         {%endfor%}
       </tbody>
     </table>

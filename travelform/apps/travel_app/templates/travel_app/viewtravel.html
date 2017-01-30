@@ -13,10 +13,14 @@
     <p>Description:  {{views1.description}}</p>
     <p>Travel date from: {{views1.datefrom}}</p>
     <p>Travel date to: {{views1.dateto}}</p>
+    
 
     <h3>other users joining the trip</h3>
     {%for view in views%}
+    {%if view.user.id != views1.owner_id %}
+
     <p>{{view.user.name}}</p>
+    {%endif%}
     {%endfor%}
   </body>
 </html>
