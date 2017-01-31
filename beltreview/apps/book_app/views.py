@@ -60,6 +60,10 @@ def addreview(request,uid,bid):
 def logout(request):
     return redirect('/')
 def user(request,id):
+    # print "$"*35
+    # join=  Join.objects.filter(user_id = id)
+    # print join[1].tile
+    # print "$"*35
     context = {
     'user' : User.objects.get(id = id),
     'book' : Join.objects.filter(user_id = id)

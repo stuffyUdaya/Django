@@ -10,11 +10,12 @@
     <p>Name : {{user.name}}</p>
     <p>Email: {{user.email}}</p>
 
-    <p>Total Reviews:</p>
+    <p>Total Reviews:{{book.count}}</p>
     <h5>Posted reviews on the following books:</h5>
     {%for x in book%}
 
-    <p>{{x.book.name}}</p>
+    <p>{{x.book.title}}</p>
+
     {%endfor%}
   </body>
 </html>
