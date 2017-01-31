@@ -5,8 +5,25 @@
     <title></title>
   </head>
   <body>
-    <p>{{book.book.title}}</p>
-    <p>Author: {{book.book.author}}</p>
-
+    <p><a href="/home">Home</a></p>
+    <p><a href="/logout">Logout</a></p>
+    <form action="/addreview/{{user.id}}/{{books.id}}" method="post">
+      {%csrf_token%}
+      <p>Add a Review: <textarea name="review" rows="8" cols="80"></textarea></p>
+      <p>Rating:<select name="rating" required>
+        <option value="5">5</option>
+        <option value="5">4</option>
+        <option value="5">3</option>
+        <option value="5">2</option>
+        <option value="5">1</option>
+      </select></p>
+      <p><input type="submit" value="Submit Rating and Review"></p>
+    </form>
+    <p>{{books.title}}</p>
+    <p>Author: {{books.author}}</p>
+    {%for x in book%}
+    <p>Rating:{{x.rating}}</p>
+    <p><a href="/user/{{x.user.id}}">{{x.user.name}}</a> says:: {{x.review}}</p>
+    {%endfor%}
   </body>
 </html>

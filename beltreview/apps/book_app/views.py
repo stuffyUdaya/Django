@@ -32,7 +32,7 @@ def login(request):
 def success(request):
     context = {
         'user' : User.objects.get(id = request.session['loggedin']),
-        'books':Book.objects.all()
+        'books':Book.objects.exclude(bookuser_id = request.session['loggedin'] )
     }
     return render(request,'book_app/success.html',context)
 def addbook(request,id):
@@ -49,8 +49,31 @@ def add(request,id):
     book = Book.objects.create(title = title, author = author, review = review, rating = rating, bookuser = user)
     join = Join.objects.create(user= user, review = review, rating = rating, book = book )
     return redirect('/success')
+def addreview(request,uid,bid):
+    review = request.POST['review']
+    rating = request.POST['rating']
+    context = {
+     'user': User.objects.get(id = uid),
+     'joins': Join.objects.create(user_id= uid, review = review, rating = rating, book_id = bid )
+     }
+    return redirect('/success')
+def logout(request):
+    return redirect('/')
+def user(request,id):
+    context = {
+    'user' : User.objects.get(id = id),
+    'book' : Join.objects.filter(user_id = id)
+    }
+    return render(request,'book_app/user.html',context)
+
+def home(request):
+    return redirect('/success')
+
 def viewbook(request,id):
+
     context={
-    'book' : Join.objects.get(book_id = id),
+    'books':Book.objects.get(id = id),
+    'book' : Join.objects.filter(book_id = id),
+    'user' : User.objects.get(id = request.session['loggedin'])
     }
     return render(request,"book_app/viewbook.html",context)
