@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="card-panel">
-      <span class="blue-text text-darken-2"><p class="center-align">Hello, {{user.0.name}} !! Want to plan a trip!! Go ahead :)</p></span>
+      <span class="blue-text text-darken-2"><p class="center-align">Hello, {{user.0.name}} !! Want to plan a trip!! Go ahead and click on Add travel plan:)</p></span><a href="/addtravelplan/{{user.0.id}}"><span class="yellow">Add Travel Plan</a></span>
     </div>
     <div class="card-panel">
       <span class="green-text text-darken-2" ><p class="center-align">Hey, {{user.0.name}} !! Have you checked your upcoming trip schedules</p></span>
@@ -70,7 +70,7 @@
       </tbody>
     </table>
     <div class="card-panel">
-      <span class="green-text text-darken-2" ><p class="center-align"><a href="/addtravelplan/{{user.0.id}}">Add Travel Plan</a> <br>
+      <span class="green-text text-darken-2" ><p class="center-align"> <br>
       <a href="/logout">Logout</a></p></span>
     </div>
 

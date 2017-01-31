@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p><a href="/home">Home</a></p>
+    <p><a href="/logot">Logout</a></p>
+    <h5>Hi {{user.name}}!!</h5>
+    <h4>Add a new book Title and Review:</h4>
+    <form action="/add/{{user.id}}" method="post">
+      {%csrf_token%}
+        <p>Book Title: <input type="text" name="title" required></p>
+        <p>Book Author:<input type="text" name="author" required></p>
+        <p>Review:<textarea name="review" rows="8" cols="80" required></textarea></p>
+        <p>Rating:<select name="rating" required>
+          <option value="5">5</option>
+          <option value="5">4</option>
+          <option value="5">3</option>
+          <option value="5">2</option>
+          <option value="5">1</option>
+        </select></p>
+        <p><input type="submit" value="Add book and Review"></p>
+    </form>
+  </body>
+</html>

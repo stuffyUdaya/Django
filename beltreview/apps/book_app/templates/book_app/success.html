@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+  </head>
+  <body>
+    <div class="card-panel #64b5f6 blue lighten-2"><p class="right-align"><a href="/addbook/{{user.id}}"><span class="yellow">Add Book and Review</span></a></p><br><p class="right-align"><a href="/logout"><span class="yellow">Logout</span></a></p></span></div>
+    <p>Hi {{user.name}},</p>
+    <p>Recent Book Reviews:</p>
+
+    {%for book in books %}
+    <p><a href="viewbook/{{book.id}}">{{book.title}}</a></p>
+    <p>Rating: {{book.rating}}</p>
+    {%endfor%}
+
+  </body>
+</html>
