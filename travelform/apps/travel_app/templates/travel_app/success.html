@@ -14,7 +14,7 @@
       <span class="green-text text-darken-2" ><p class="center-align">Hey, {{user.0.name}} !! Have you checked your upcoming trip schedules</p></span>
     </div>
 
-    <table>
+    <table class= "centered","striped">
       <thead>
         <tr>
           <th>Destination</th>
@@ -30,15 +30,16 @@
           <td>{{trip.trip.datefrom}}</td>
           <td>{{trip.trip.dateto}}</td>
           <td>{{trip.trip.description}}</td>
-          <td>tripid:{{trip.trip.id}}</td>
-          <td>userid: {{trip.user.id}}</td>
+
         </tr>
         {%endfor%}
       </tbody>
     </table>
+    <div class="card-panel">
+      <span class="orange-text text-darken-2 " ><p class="center-align">Hey, {{user.0.name}} !! Want to check on where otheres are planning!!!</p></span>
+    </div>
 
-    <h3>other Users Travel Plans</h3>
-    <table>
+    <table class = "ceneterd">
       <thead>
         <tr>
           <th>Name</th>
@@ -68,9 +69,11 @@
         {%endfor%}
       </tbody>
     </table>
-
-    <a href="/addtravelplan/{{user.0.id}}">Add Travel Plan</a>
-    <a href="/logout">Logout</a>
+    <div class="card-panel">
+      <span class="green-text text-darken-2" ><p class="center-align"><a href="/addtravelplan/{{user.0.id}}">Add Travel Plan</a> <br>
+      <a href="/logout">Logout</a></p></span>
+    </div>
+    
 
   </body>
 </html>
