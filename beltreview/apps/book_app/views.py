@@ -60,17 +60,23 @@ def addreview(request,uid,bid):
 def logout(request):
     return redirect('/')
 def user(request,id):
+
     # print "$"*35
     # join=  Join.objects.filter(user_id = id)
     # print join[1].tile
     # print "$"*35
     context = {
     'user' : User.objects.get(id = id),
-    'book' : Join.objects.filter(user_id = id)
+    'book' : Join.objects.filter(user_id = id),
+    'users':request.session['loggedin']
     }
     return render(request,'book_app/user.html',context)
 
 def home(request):
+    return redirect('/success')
+def delete(request,id):
+    review = Join.objects.get(id = id)
+    print Join.objects.filter(id =id).delete()
     return redirect('/success')
 
 def viewbook(request,id):

@@ -22,8 +22,15 @@
     <p>{{books.title}}</p>
     <p>Author: {{books.author}}</p>
     {%for x in book%}
+
     <p>Rating:{{x.rating}}</p>
+        {%if x.user.id != user.id %}
     <p><a href="/user/{{x.user.id}}">{{x.user.name}}</a> says:: {{x.review}}</p>
+    {%endif%}
+    {%if x.user.id == user.id%}
+    <p><a href="/user/{{x.user.id}}">{{x.user.name}}</a> says:: {{x.review}}, {{x.id}}</p>
+    <a href="/delete/{{x.id}}">Delete this Review</a>
+    {%endif%}
     {%endfor%}
   </body>
 </html>

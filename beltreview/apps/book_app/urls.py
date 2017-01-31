@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^addreview/(?P<uid>\d+)/(?P<bid>\d+)$', views.addreview),
     url(r'^viewbook/(?P<id>\d+)$', views.viewbook),
     url(r'^user/(?P<id>\d+)$', views.user),
+    url(r'^delete/(?P<id>\d+)$', views.delete),
     url(r'^logout$', views.logout),
     url(r'^home$', views.home),
 
